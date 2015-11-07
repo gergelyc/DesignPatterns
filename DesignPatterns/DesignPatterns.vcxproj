@@ -76,11 +76,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PayOff.cpp" />
     <ClCompile Include="Random1.cpp" />
+    <ClCompile Include="SimpleMC.cpp" />
     <ClCompile Include="SimpleMCMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="minmax.h" />
+    <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random1.h" />
+    <ClInclude Include="SimpleMC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,38 +1,7 @@
-#include "Random1.h"
 #include <iostream>
-#include <cmath>
+#include "SimpleMC.h"
 
 using namespace std;
-
-double SimpleMonteCarlo(
-	double Expiry,
-	double Strike,
-	double Spot,
-	double Vol,
-	double r,
-	unsigned long NumberOfPaths)
-{
-	double variance = Vol * Vol * Expiry;
-	double rootVariance = sqrt(variance);
-	double itoCorrection = -0.5 * variance;
-
-	double movedSpot = Spot * exp(r * Expiry + itoCorrection);
-	double thisSpot;
-	double runningSum = 0;
-
-	for (unsigned long i = 0; i < NumberOfPaths; i++)
-	{
-		double thisGaussian = GetOneGaussianByBoxMuller();
-		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
-		double thisPayOff = thisSpot - Strike;
-		thisPayOff = thisPayOff > 0 ? thisPayOff : 0;
-		runningSum += thisPayOff;
-	}
-
-	double mean = runningSum / NumberOfPaths;
-	mean *= exp(-r * Expiry);
-	return mean;
-}
 
 int main()
 {
@@ -61,7 +30,12 @@ int main()
 	cout << "\nNumber of paths\n";
 	cin >> NumberOfPaths;
 
-	double result = SimpleMonteCarlo(Expiry, Strike, Spot, Vol, r, NumberOfPaths);
+	PayOff callPayOff(Strike, PayOff::call);
+	PayOff putPayOff(Strike, PayOff::put);
 
-	cout << "the price is " << result << endl;
+	double resultCall = SimpleMonteCarlo(callPayOff, Expiry, Spot, Vol, r, NumberOfPaths);
+	double resultPut = SimpleMonteCarlo(putPayOff, Expiry, Spot, Vol, r, NumberOfPaths);
+
+	cout << "the call price is " << resultCall << endl;
+	cout << "the put price is " << resultPut << endl;
 }

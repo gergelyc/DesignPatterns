@@ -76,12 +76,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleDigital.cpp" />
     <ClCompile Include="PayOff.cpp" />
     <ClCompile Include="Random1.cpp" />
     <ClCompile Include="SimpleMC.cpp" />
     <ClCompile Include="SimpleMCMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DoubleDigital.h" />
     <ClInclude Include="minmax.h" />
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random1.h" />

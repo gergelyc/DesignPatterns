@@ -33,6 +33,9 @@
     <ClCompile Include="Vanilla.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PayOffBridge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Random1.h">
@@ -51,6 +54,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vanilla.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PayOffBridge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,13 +4,30 @@
 class PayOff
 {
 public:
-	enum OptionType {call, put};
-	PayOff(double Strike_, OptionType TheOptionsType_);
-	double operator()(double Spot) const;
+	PayOff() {};
+	virtual double operator()(double Spot) const = 0;
+	virtual ~PayOff() {};
+};
+
+class PayOffCall: public PayOff
+{
+public:
+	PayOffCall(double Strike_);
+	virtual double operator()(double Spot) const;
+	virtual ~PayOffCall() {};
 
 private:
-	OptionType TheOptionsType;
 	double Strike;
 };
 
+class PayOffPut : public PayOff
+{
+public:
+	PayOffPut(double Strike_);
+	virtual double operator()(double Spot) const;
+	virtual ~PayOffPut() {};
+
+private:
+	double Strike;
+};
 #endif

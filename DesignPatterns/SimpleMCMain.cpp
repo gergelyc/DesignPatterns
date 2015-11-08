@@ -38,7 +38,10 @@ int main()
 	PayOffDoubleDigital payOffDoubleDigital{ LowerLevel, UpperLevel };
 	VanillaOption theOption(payOffDoubleDigital, Expiry);
 
-	double result = SimpleMonteCarlo(theOption, Spot, Vol, r, NumberOfPaths);
+	ParametersConstant VolParam(Vol);
+	ParametersConstant rParam(r);
+
+	double result = SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths);
 	
 	cout << "the price is " << result << endl;
 }

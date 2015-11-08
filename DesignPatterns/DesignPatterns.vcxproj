@@ -81,6 +81,7 @@
     <ClCompile Include="Random1.cpp" />
     <ClCompile Include="SimpleMC.cpp" />
     <ClCompile Include="SimpleMCMain.cpp" />
+    <ClCompile Include="Vanilla.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DoubleDigital.h" />
@@ -88,6 +89,7 @@
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random1.h" />
     <ClInclude Include="SimpleMC.h" />
+    <ClInclude Include="Vanilla.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

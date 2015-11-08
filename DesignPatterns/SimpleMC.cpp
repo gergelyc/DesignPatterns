@@ -3,13 +3,13 @@
 #include <cmath>
 
 double SimpleMonteCarlo(
-	const PayOff& thePayOff,
-	double Expiry,
+	const VanillaOption& theOption,
 	double Spot,
 	double Vol,
 	double r,
 	unsigned long NumberOfPaths)
 {
+	double Expiry = theOption.GetExpiry();
 	double variance = Vol * Vol * Expiry;
 	double rootVariance = sqrt(variance);
 	double itoCorrection = -0.5 * variance;
@@ -22,7 +22,7 @@ double SimpleMonteCarlo(
 	{
 		double thisGaussian = GetOneGaussianByBoxMuller();
 		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
-		runningSum += thePayOff(thisSpot);
+		runningSum += theOption.OptionPayOff(thisSpot);
 	}
 
 	double mean = runningSum / NumberOfPaths;

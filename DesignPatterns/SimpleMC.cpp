@@ -2,12 +2,13 @@
 #include "Random1.h"
 #include <cmath>
 
-double SimpleMonteCarlo(
+void SimpleMonteCarlo(
 	const VanillaOption& theOption,
 	double Spot,
 	const Parameters& Vol,
 	const Parameters& r,
-	unsigned long NumberOfPaths)
+	unsigned long NumberOfPaths,
+	StatisticsMC& gatherer)
 {
 	double Expiry = theOption.GetExpiry();
 	double variance = Vol.IntegralSquare(0, Expiry);
@@ -16,16 +17,13 @@ double SimpleMonteCarlo(
 
 	double movedSpot = Spot * exp(r.Integral(0, Expiry) + itoCorrection);
 	double thisSpot;
-	double runningSum = 0;
 
+	double discounting = exp(-r.Integral(0, Expiry));
+	
 	for (unsigned long i = 0; i < NumberOfPaths; i++)
 	{
 		double thisGaussian = GetOneGaussianByBoxMuller();
 		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
-		runningSum += theOption.OptionPayOff(thisSpot);
+		gatherer.DumpOneResult(discounting * theOption.OptionPayOff(thisSpot));
 	}
-
-	double mean = runningSum / NumberOfPaths;
-	mean *= exp(-r.Integral(0, Expiry));
-	return mean;
 }

@@ -2,12 +2,14 @@
 #define SIMPLEMC_H
 #include "Vanilla.h"
 #include "Parameters.h"
+#include "MCStatistics.h"
 
-double SimpleMonteCarlo(
+void SimpleMonteCarlo(
 	const VanillaOption& theOption,
 	double Spot,
 	const Parameters& Vol,
 	const Parameters& r,
-	unsigned long NumberOfPaths);
+	unsigned long NumberOfPaths,
+	StatisticsMC& gatherer);
 
 #endif

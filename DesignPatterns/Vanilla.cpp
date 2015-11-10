@@ -1,6 +1,6 @@
 #include "Vanilla.h"
 
-VanillaOption::VanillaOption(const PayOffBridge& ThePayOff_, double Expiry_)
+VanillaOption::VanillaOption(const Wrapper<PayOff>& ThePayOff_, double Expiry_)
 	: Expiry{ Expiry_ }, ThePayOff{ ThePayOff_ }
 {
 }
@@ -12,5 +12,5 @@ double VanillaOption::GetExpiry() const
 
 double VanillaOption::OptionPayOff(double Spot) const
 {
-	return ThePayOff(Spot);
+	return ThePayOff->operator()(Spot);
 }

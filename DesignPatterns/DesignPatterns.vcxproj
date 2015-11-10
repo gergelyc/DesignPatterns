@@ -96,6 +96,7 @@
     <ClInclude Include="Random1.h" />
     <ClInclude Include="SimpleMC.h" />
     <ClInclude Include="Vanilla.h" />
+    <ClInclude Include="Wrapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

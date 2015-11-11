@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="Parameters.cpp" />
@@ -87,12 +88,12 @@
     <ClCompile Include="Vanilla.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="minmax.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="PayOff.h" />
-    <ClInclude Include="PayOffBridge.h" />
     <ClInclude Include="Random1.h" />
     <ClInclude Include="SimpleMC.h" />
     <ClInclude Include="Vanilla.h" />

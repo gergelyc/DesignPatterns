@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SimpleMC.h"
 #include "DoubleDigital.h"
+#include "ConvergenceTable.h"
 
 using namespace std;
 
@@ -41,11 +42,12 @@ int main()
 	ParametersConstant VolParam(Vol);
 	ParametersConstant rParam(r);
 
-	StatisticsMean gatherer;
+	StatisticsMean gathererMean;
+	ConvergenceTable gathererMeanConvTable(gathererMean);
 
-	SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths, gatherer);
+	SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererMeanConvTable);
 	
-	vector<vector<double>> results = gatherer.GetResultSoFar();
+	vector<vector<double>> results = gathererMeanConvTable.GetResultSoFar();
 
 	cout << "For the double digital the results are:" << endl;
 

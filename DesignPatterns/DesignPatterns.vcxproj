@@ -76,28 +76,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
+    <ClCompile Include="Normals.cpp" />
     <ClCompile Include="Parameters.cpp" />
+    <ClCompile Include="ParkMiller.cpp" />
     <ClCompile Include="PayOff.cpp" />
     <ClCompile Include="PayOffBridge.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="Random1.cpp" />
     <ClCompile Include="SimpleMC.cpp" />
     <ClCompile Include="SimpleMCMain.cpp" />
     <ClCompile Include="Vanilla.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="minmax.h" />
+    <ClInclude Include="Normals.h" />
     <ClInclude Include="Parameters.h" />
+    <ClInclude Include="ParkMiller.h" />
     <ClInclude Include="PayOff.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Random1.h" />
     <ClInclude Include="SimpleMC.h" />
     <ClInclude Include="Vanilla.h" />
     <ClInclude Include="Wrapper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

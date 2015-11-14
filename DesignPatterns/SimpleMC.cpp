@@ -1,5 +1,4 @@
 #include "SimpleMC.h"
-#include "Random1.h"
 #include <cmath>
 
 void SimpleMonteCarlo(
@@ -8,8 +7,11 @@ void SimpleMonteCarlo(
 	const Parameters& Vol,
 	const Parameters& r,
 	unsigned long NumberOfPaths,
-	StatisticsMC& gatherer)
+	StatisticsMC& gatherer,
+	RandomBase& generator)
 {
+	generator.ResetDimensionality(1);
+
 	double Expiry = theOption.GetExpiry();
 	double variance = Vol.IntegralSquare(0, Expiry);
 	double rootVariance = sqrt(variance);
@@ -20,10 +22,12 @@ void SimpleMonteCarlo(
 
 	double discounting = exp(-r.Integral(0, Expiry));
 	
+	std::vector<double> VariateVector(1);
+
 	for (unsigned long i = 0; i < NumberOfPaths; i++)
 	{
-		double thisGaussian = GetOneGaussianByBoxMuller();
-		thisSpot = movedSpot * exp(rootVariance * thisGaussian);
+		generator.GetGaussian(VariateVector);
+		thisSpot = movedSpot * exp(rootVariance * VariateVector[0]);
 		gatherer.DumpOneResult(discounting * theOption.OptionPayOff(thisSpot));
 	}
 }

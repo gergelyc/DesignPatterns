@@ -2,6 +2,8 @@
 #include "SimpleMC.h"
 #include "DoubleDigital.h"
 #include "ConvergenceTable.h"
+#include "ParkMiller.h"
+#include "AntiThetic.h"
 
 using namespace std;
 
@@ -45,7 +47,10 @@ int main()
 	StatisticsMean gathererMean;
 	ConvergenceTable gathererMeanConvTable(gathererMean);
 
-	SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererMeanConvTable);
+	RandomParkMiller ParkMillerGenerator(1);
+	AntiThetic generator(ParkMillerGenerator);
+
+	SimpleMonteCarlo(theOption, Spot, VolParam, rParam, NumberOfPaths, gathererMeanConvTable, generator);
 	
 	vector<vector<double>> results = gathererMeanConvTable.GetResultSoFar();
 

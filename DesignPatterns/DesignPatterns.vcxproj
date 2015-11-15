@@ -79,6 +79,7 @@
     <ClCompile Include="AntiThetic.cpp" />
     <ClCompile Include="ConvergenceTable.cpp" />
     <ClCompile Include="DoubleDigital.cpp" />
+    <ClCompile Include="ExoticBSEngine.cpp" />
     <ClCompile Include="ExoticEngine.cpp" />
     <ClCompile Include="MCStatistics.cpp" />
     <ClCompile Include="Normals.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="AntiThetic.h" />
     <ClInclude Include="ConvergenceTable.h" />
     <ClInclude Include="DoubleDigital.h" />
+    <ClInclude Include="ExoticBSEngine.h" />
     <ClInclude Include="ExoticEngine.h" />
     <ClInclude Include="MCStatistics.h" />
     <ClInclude Include="minmax.h" />

@@ -83,6 +83,7 @@
     <ClCompile Include="Normals.cpp" />
     <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="ParkMiller.cpp" />
+    <ClCompile Include="PathDependent.cpp" />
     <ClCompile Include="PayOff.cpp" />
     <ClCompile Include="PayOffBridge.cpp" />
     <ClCompile Include="Random.cpp" />
@@ -100,6 +101,7 @@
     <ClInclude Include="Normals.h" />
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="ParkMiller.h" />
+    <ClInclude Include="PathDependent.h" />
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Random1.h" />

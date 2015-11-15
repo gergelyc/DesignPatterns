@@ -60,6 +60,9 @@
     <ClCompile Include="PathDependent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ExoticEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Random1.h">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PathDependent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExoticEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

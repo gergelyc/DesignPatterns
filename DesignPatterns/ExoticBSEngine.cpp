@@ -16,7 +16,7 @@ ExoticBSEngine::ExoticBSEngine(const Wrapper<PathDependent>& TheProduct_,
 	StandardDeviations.resize(NumberOfTimes);
 
 	double Variance = Vols_.IntegralSquare(0.0, Times[0]);
-	Drifts[0] = R_.Integral(0.0, Times[0]) - D_.Integral(0.0, Times[0]) - 0.5 * Variance);
+	Drifts[0] = R_.Integral(0.0, Times[0]) - D_.Integral(0.0, Times[0]) - 0.5 * Variance;
 	StandardDeviations[0] = std::sqrt(Variance);
 
 	for (unsigned long i = 1; i < NumberOfTimes; i++)
@@ -33,7 +33,7 @@ ExoticBSEngine::ExoticBSEngine(const Wrapper<PathDependent>& TheProduct_,
 	LogSpot = std::log(Spot_);
 }
 
-void ExoticBSEngine::GetOnePath(std::vector<double> SpotValues)
+void ExoticBSEngine::GetOnePath(std::vector<double>& SpotValues)
 {
 	TheGenerator->GetUniforms(Variates);
 	

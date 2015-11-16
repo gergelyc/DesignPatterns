@@ -1,7 +1,7 @@
 #include "PathDependent.h"
 
 PathDependent::PathDependent(const std::vector<double>& LookAtTimes_)
-	: LookAtTimes{ LookAtTimes_ }
+	: LookAtTimes( LookAtTimes_ )
 {
 }
 

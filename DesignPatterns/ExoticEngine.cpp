@@ -2,7 +2,7 @@
 #include <cmath>
 
 ExoticEngine::ExoticEngine(const Wrapper<PathDependent>& TheProduct_, const Parameters& r_)
-	: TheProduct{ TheProduct_ }, r{ r_ }, Discounts{ TheProduct_->PossibleCashFlowTimes() }
+	: TheProduct{ TheProduct_ }, r{ r_ }, Discounts( TheProduct_->PossibleCashFlowTimes() )
 {
 	TheseCashFlows.resize(TheProduct->MaxNumberOfCashFlows());
 

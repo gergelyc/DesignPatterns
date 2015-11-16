@@ -86,12 +86,12 @@
     <ClCompile Include="Parameters.cpp" />
     <ClCompile Include="ParkMiller.cpp" />
     <ClCompile Include="PathDependent.cpp" />
+    <ClCompile Include="PathDependentAsian.cpp" />
     <ClCompile Include="PayOff.cpp" />
-    <ClCompile Include="PayOffBridge.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Random1.cpp" />
     <ClCompile Include="SimpleMC.cpp" />
-    <ClCompile Include="SimpleMCMain.cpp" />
+    <ClCompile Include="ExoticMCMain.cpp" />
     <ClCompile Include="Vanilla.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +106,7 @@
     <ClInclude Include="Parameters.h" />
     <ClInclude Include="ParkMiller.h" />
     <ClInclude Include="PathDependent.h" />
+    <ClInclude Include="PathDependentAsian.h" />
     <ClInclude Include="PayOff.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Random1.h" />

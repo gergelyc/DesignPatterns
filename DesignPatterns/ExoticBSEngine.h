@@ -13,7 +13,7 @@ public:
 		const Wrapper<RandomBase>& TheGenerator_,
 		double Spot_);
 
-	void GetOnePath(std::vector<double> SpotValues);
+	virtual void GetOnePath(std::vector<double>& SpotValues);
 	virtual ~ExoticBSEngine() {}
 
 private:

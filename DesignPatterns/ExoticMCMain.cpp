@@ -48,7 +48,7 @@ int main()
 
 	//set up path dependent option
 	PayOffCall payOffCall{ Strike };
-	PathDependentAsian TheAsianCall(LookAtTimes, Expiry, payOffCall);
+	PathDependentAsian ThisAsianCall(LookAtTimes, Expiry, payOffCall);
 
 	//set up exotic engine
 	ParametersConstant VolParam{ Vol };
@@ -58,7 +58,7 @@ int main()
 	RandomParkMiller ParkMillerGenerator(1);
 	AntiThetic generator(ParkMillerGenerator);
 
-	ExoticBSEngine TheBSEngine(TheAsianCall,
+	ExoticBSEngine TheBSEngine(ThisAsianCall,
 		rParam,
 		dParam,
 		VolParam,

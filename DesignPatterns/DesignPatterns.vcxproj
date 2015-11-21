@@ -88,6 +88,7 @@
     <ClCompile Include="PathDependent.cpp" />
     <ClCompile Include="PathDependentAsian.cpp" />
     <ClCompile Include="PayOff.cpp" />
+    <ClCompile Include="PayOffFactory.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Random1.cpp" />
     <ClCompile Include="SimpleMC.cpp" />
@@ -108,6 +109,7 @@
     <ClInclude Include="PathDependent.h" />
     <ClInclude Include="PathDependentAsian.h" />
     <ClInclude Include="PayOff.h" />
+    <ClInclude Include="PayOffFactory.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Random1.h" />
     <ClInclude Include="SimpleMC.h" />

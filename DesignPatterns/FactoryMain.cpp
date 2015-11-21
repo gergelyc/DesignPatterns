@@ -2,10 +2,11 @@
 #include "ConvergenceTable.h"
 #include "ParkMiller.h"
 #include "AntiThetic.h"
-#include "PathDependentAsian.h"
-#include "ExoticBSEngine.h"
+//#include "PathDependentAsian.h"
+#include "SimpleMC.h"
 #include "MCStatistics.h"
-
+#include "PayOffFactory.h"
+#include <string>
 using namespace std;
 
 int main()
@@ -16,7 +17,7 @@ int main()
 	double Vol;
 	double r;
 	unsigned long NumberOfPaths;
-	unsigned long NumberOfDates;
+	string PayOffId;
 
 	cout << "\nEnter expiry\n";
 	cin >> Expiry;
@@ -36,45 +37,39 @@ int main()
 	cout << "\nNumber of paths\n";
 	cin >> NumberOfPaths;
 
-	cout << "\nNumber of dates\n";
-	cin >> NumberOfDates;
+	cout << "\nEnter pay-off id\n";
+	cin >> PayOffId;
+	
+	//create pay off using the factory
+	PayOff* thePayOffPtr = PayOffFactory::Instance().CreatePayOff(PayOffId, Strike);
 
-	vector<double> LookAtTimes(NumberOfDates);
-	for (unsigned long i = 0; i < NumberOfDates; i++)
-	{
-		cout << "Look at date " << i << ": ";
-		cin >> LookAtTimes[i];
-	}
+	//create option
+	VanillaOption theOption(*thePayOffPtr, Expiry);
 
-	//set up path dependent option
-	PayOffCall payOffCall{ Strike };
-	PathDependentAsian ThisAsianCall(LookAtTimes, Expiry, payOffCall);
-
-	//set up exotic engine
+	//set up parameters
 	ParametersConstant VolParam{ Vol };
 	ParametersConstant rParam{ r };
-	ParametersConstant dParam{ 0.0 };
 
+	//set up random number generator
 	RandomParkMiller ParkMillerGenerator(1);
 	AntiThetic generator(ParkMillerGenerator);
-
-	ExoticBSEngine TheBSEngine(ThisAsianCall,
-		rParam,
-		dParam,
-		VolParam,
-		generator,
-		Spot);
 
 	//set up statistics gatherer
 	StatisticsMean gathererMean;
 	ConvergenceTable gathererMeanConvTable(gathererMean);
 
 	//run simulation
-	TheBSEngine.DoSimulation(gathererMeanConvTable, NumberOfPaths);
+	SimpleMonteCarlo(theOption,
+		Spot,
+		VolParam,
+		rParam,
+		NumberOfPaths,
+		gathererMeanConvTable,
+		generator);
 
 	vector<vector<double>> results = gathererMeanConvTable.GetResultSoFar();
 
-	cout << "\nFor the Asian call the results are:" << endl;
+	cout << "\nFor the " << PayOffId << " the results are:" << endl;
 
 	for (unsigned long i = 0; i < results.size(); i++)
 	{
